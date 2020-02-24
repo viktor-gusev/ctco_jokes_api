@@ -1,0 +1,16 @@
+version: '3'
+services:
+#  web:
+#    build: .
+#    ports:
+#      - "3000:3000"
+#    links:
+#      - postgres
+  postgres:
+    image: postgres
+    ports:
+    - "5432:5432"
+    environment:
+      POSTGRES_USER: ctco
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_DB: ctco_jokes

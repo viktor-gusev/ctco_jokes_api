@@ -16,7 +16,10 @@ export class AppController {
         const category = Array.isArray(searchRequest.category) ? searchRequest.category : [searchRequest.category];
         const type = Array.isArray(searchRequest.type) ? searchRequest.type : [searchRequest.type];
 
-        const jokes = await this.appService.retrieveJokes(size, category, type);
+        const categoryArr = category.filter(el => el && el !== 'any');
+        const typeArr = type.filter(el => el);
+
+        const jokes = await this.appService.retrieveJokes(size, categoryArr, typeArr);
         return {jokes};
     }
 }

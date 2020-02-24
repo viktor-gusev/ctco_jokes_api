@@ -1,0 +1,12 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "ctco",
+  "password": "qwerty",
+  "database": "ctco_jokes",
+  "entities": [
+    "dist/**/**.entity{.ts,.js}"
+  ],
+  "synchronize": false
+}
