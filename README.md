@@ -25,11 +25,13 @@ TODO
 - POST over GET because it is easier to manage request options in body
 - node-fetch over axios (or got) because it has been already in use by nestjs
 
-Spent 2h on initial commit (issues with development environment on local machine)
-
+Spent 2h on initial commit (issues with development environment on local machine)  
+Spent 3h on Docker setup and DB initialization
 
 TODO:
-- Add Dockerfile
+- Fix Dockerfile (smth with dist in 2nd container)
 - Setup production ready solution
 - Test edge cases (performance)
-- Add censorship
+- Refactoring - Move all logic to JokesModule
+- Add user module
+- Add admin endpoint to modify flags and categories
