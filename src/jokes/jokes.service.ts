@@ -7,7 +7,7 @@ import {Category} from "./entities/category.entity";
 const JOKES_ENDPOINT = 'https://sv443.net/jokeapi/v2/joke/';
 
 @Injectable()
-export class AppService {
+export class JokesService {
 
     async retrieveJokes(size: number, category?: categoryType[], type?: jokeType[]): Promise<string[]> {
         const [categories, flags] = await Promise.all([this.getCategories(), this.getFlags()]);

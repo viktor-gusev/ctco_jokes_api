@@ -1,11 +1,11 @@
-import {Body, Controller, HttpCode, Post, UsePipes, ValidationPipe} from '@nestjs/common';
-import {AppService} from './app.service';
+import {Body, Controller, HttpCode, Post, UsePipes, ValidationPipe} from "@nestjs/common";
 import {SearchRequestDto} from "./dto/SearchRequestDto";
 import {SearchResponseDto} from "./dto/SearchResponseDto";
+import {JokesService} from "./jokes.service";
 
 @Controller()
-export class AppController {
-    constructor(private readonly appService: AppService) {
+export class JokesController {
+    constructor(private readonly  jokesService: JokesService) {
     }
 
     @Post()
@@ -19,7 +19,7 @@ export class AppController {
         const categoryArr = category.filter(el => el && el !== 'any');
         const typeArr = type.filter(el => el);
 
-        const jokes = await this.appService.retrieveJokes(size, categoryArr, typeArr);
+        const jokes = await this.jokesService.retrieveJokes(size, categoryArr, typeArr);
         return {jokes};
     }
 }

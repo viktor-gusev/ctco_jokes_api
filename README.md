@@ -32,6 +32,5 @@ TODO:
 - Fix Dockerfile (smth with dist in 2nd container)
 - Setup production ready solution
 - Test edge cases (performance)
-- Refactoring - Move all logic to JokesModule
 - Add user module
 - Add admin endpoint to modify flags and categories
