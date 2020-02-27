@@ -27,10 +27,10 @@ TODO
 
 Spent 2h on initial commit (issues with development environment on local machine)  
 Spent 3h on Docker setup and DB initialization
+Spent 2h on Auth module
+Spent 30m on Update requests
 
 TODO:
 - Fix Dockerfile (smth with dist in 2nd container)
 - Setup production ready solution
 - Test edge cases (performance)
-- Add user module
-- Add admin endpoint to modify flags and categories
