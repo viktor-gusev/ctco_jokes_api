@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 COPY tsconfig*.json ./
-COPY src/ .
+COPY . .
 
 RUN npm install
 RUN npm run build
@@ -17,7 +17,7 @@ ENV PORT=3000
 WORKDIR /usr/src/app
 
 COPY --from=packager /usr/src/app/package*.json ./
-COPY --from=packager /usr/src/app/dist/ ./dist/
+COPY --from=packager /usr/src/app/dist ./dist/
 
 RUN npm install --production
 

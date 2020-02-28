@@ -5,19 +5,50 @@
 ## Installation
 
 ```bash
-$ npm install
+npm i
+
+docker-compose up -d
+npm run typeorm # this should fail with Not enough non-option arguments: got 0, need at least 1
+npm run migration
+
+npm run build
 ```
 
 ## Running the app
 
 ```bash
-TODO
+npm run start:prod
 ```
 
-## Test
+## API
 
 ```bash
+# retrieve jokes
+curl --location --request POST 'http://localhost:3000/' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
 
+# get JWT
+curl --location --request POST 'http://localhost:3000/auth/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"username": "admin",
+	"password": "admin"
+}'
+
+# get Categories
+curl --location --request GET 'http://localhost:3000/categories' \
+--header 'Authorization: Bearer TOKEN_HERE' \
+--data-raw ''
+
+# Update Category
+curl --location --request PUT 'http://localhost:3000/category' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer TOKEN_HERE' \
+--data-raw '{
+    "id": 1,
+    "isBanned": true
+}'
 ```
 
 ## Notes
