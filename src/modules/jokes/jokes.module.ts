@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import {HttpModule, Module} from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Category } from "./entities/category.entity";
 import { Flag } from "./entities/flag.entity";
@@ -7,7 +7,7 @@ import { JokesService } from "./jokes.service";
 import { AuthModule } from "../auth/auth.module";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Category, Flag]), AuthModule],
+  imports: [TypeOrmModule.forFeature([Category, Flag]), AuthModule, HttpModule],
   controllers: [JokesController],
   providers: [JokesService]
 })

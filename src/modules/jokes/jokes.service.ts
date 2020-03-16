@@ -1,5 +1,4 @@
-import { Injectable } from "@nestjs/common";
-import fetch from "node-fetch";
+import {HttpService, Injectable} from "@nestjs/common";
 import {
   categoryType,
   JOKE_TYPE_SINGLE,
@@ -13,6 +12,10 @@ const JOKES_ENDPOINT = "https://sv443.net/jokeapi/v2/joke/";
 
 @Injectable()
 export class JokesService {
+
+  constructor(private httpService: HttpService) {  }
+
+
   public async retrieveJokes(
     size: number,
     category?: categoryType[],
@@ -77,8 +80,8 @@ export class JokesService {
       `${JOKES_ENDPOINT}${category.join(",")}` +
       `/${type ? "?type=" + type.join(",") : ""}` +
       `${flags ? "?flags=" + flags.join(",") : ""}`;
-    const jokeJson = await fetch(url);
-    return jokeJson.json();
+    const result = await this.httpService.get(url).toPromise();
+    return result;
   }
 
   private processJoke(joke: any): string {
