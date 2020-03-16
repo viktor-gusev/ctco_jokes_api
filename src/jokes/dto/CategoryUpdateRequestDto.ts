@@ -1,7 +1,7 @@
-import {IsNumber, IsBoolean} from "class-validator";
+import { IsNumber, IsBoolean } from "class-validator";
 export class CategoryUpdateRequestDto {
-    @IsNumber()
-    id: number;
-    @IsBoolean()
-    isBanned: boolean;
+  @IsNumber()
+  id: number;
+  @IsBoolean()
+  isBanned: boolean;
 }

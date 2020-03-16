@@ -1,12 +1,10 @@
-import {IsString, IsInt, IsNumber} from 'class-validator';
-import {categoryType, jokeType} from "./Joke";
-
+import { IsString, IsInt, IsNumber } from "class-validator";
+import { categoryType, jokeType } from "./Joke";
 
 export class SearchRequestDto {
+  @IsNumber()
+  size: number;
 
-    @IsNumber()
-    size: number;
-
-    category: categoryType | categoryType[];
-    type: jokeType;
+  category: categoryType | categoryType[];
+  type: jokeType;
 }

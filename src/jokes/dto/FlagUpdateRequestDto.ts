@@ -1,7 +1,7 @@
-import {IsNumber, IsBoolean} from "class-validator";
+import { IsNumber, IsBoolean } from "class-validator";
 export class FlagUpdateRequestDto {
-    @IsNumber()
-    id: number;
-    @IsBoolean()
-    isActive: boolean;
+  @IsNumber()
+  id: number;
+  @IsBoolean()
+  isActive: boolean;
 }

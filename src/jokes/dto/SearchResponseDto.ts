@@ -1,3 +1,3 @@
 export class SearchResponseDto {
-    jokes: string[];
+  jokes: string[];
 }
