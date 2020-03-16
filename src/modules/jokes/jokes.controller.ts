@@ -15,10 +15,14 @@ import { JokesService } from "./jokes.service";
 import { JwtAuthGuard } from "../auth/guards/jwt-auth.guard";
 import { CategoryUpdateRequestDto } from "./dto/CategoryUpdateRequestDto";
 import { FlagUpdateRequestDto } from "./dto/FlagUpdateRequestDto";
+import { ConfigService } from "@nestjs/config";
 
 @Controller()
 export class JokesController {
-  constructor(private readonly jokesService: JokesService) {}
+  constructor(
+    private readonly jokesService: JokesService,
+    private readonly config: ConfigService
+  ) {}
 
   @Post()
   @HttpCode(200)
@@ -26,7 +30,7 @@ export class JokesController {
   async main(
     @Body() searchRequest: SearchRequestDto
   ): Promise<SearchResponseDto> {
-    const size = Math.min(searchRequest.size, 50);
+    const size = Math.min(searchRequest.size, this.config.get("size"));
     const category = Array.isArray(searchRequest.category)
       ? searchRequest.category
       : [searchRequest.category];
